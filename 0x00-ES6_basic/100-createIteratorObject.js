@@ -1,6 +1,5 @@
-export default function createIteratorObject(report) {
-    let returns = []
-    for(let value in {...report}){
-        console.log(value);
-    }
+export default function createIteratorObject (report) {
+  for (const value in { ...report }) {
+    console.log(value);
+  }
 }

@@ -1,17 +1,14 @@
-function handleResponseFromAPI(promise) {
-  return promise.then(() => ({ status: 200, body: 'Success' })).catch(() => Error()).finally(() => console.warn('Got a response from the API'));
-  //       })
-  //  new Promise((resolve, reject) => {
-  //     if (promise) {
-  //       resolve({
-  //         status: 200,
-  //         body: 'Success',
-  //       });
-  //       console.log('Got a response from the API');
-  //     } else {
-  //       reject(new Error());
-  //     }
-  //   });
+async function handleResponseFromAPI(promise) {
+  let res = {
+    status: 200,
+    body: 'Success'
+  };
+  try {
+    res = await promise();
+  } catch (error) {
+    console.log('Got a response from the API');
+  }
+  return res;
 }
 
 export default handleResponseFromAPI;

@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-My formal Typescript from Alx software Engineering
-=======
-
 # 0x04. Typescript
 
 JavaScriptTypeScript

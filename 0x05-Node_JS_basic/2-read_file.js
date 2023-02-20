@@ -7,13 +7,7 @@ function countStudents (path) {
     students.shift();
     let cs = 0;
     let swe = 0;
-    for (let i = 1; i < students.length; i++) {
-      if (students[i].includes('CS')) {
-        cs++;
-      } else {
-        swe++;
-      }
-    }
+    students.forEach((student) =>  student.includes('CS') ? cs++ : swe++);
     console.log(
       `Number of students in CS: ${cs}. List: ${students
         .filter((student) => student.includes('CS'))

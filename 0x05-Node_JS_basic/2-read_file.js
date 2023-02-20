@@ -5,10 +5,20 @@ function countStudents (path) {
     const students = data.split('\n');
     console.log(`Number of students: ${students.length - 1}`);
     students.shift();
-    const cs = students.filter((student) => student.includes('CS'));
-    const swe = students.filter((student) => student.includes('SWE'));
-    console.log(`Number of students in CS: ${cs.length}. List: ${cs.map((student) => student.split(',')[0]).join(', ')}`);
-    console.log(`Number of students in SWE: ${swe.length}. List: ${swe.map((student) => student.split(',')[0]).join(', ')}`);
+    const subjects = {};
+    for (const row of students) {
+        const student = row.split(',');
+        if (!subjects[student[3]]) subjects[student[3]] = [];
+        subjects[student[3]].push(student[0]);
+    }
+    for (const subject in subjects) {
+        if (subject) console.log(`Number of students in ${subject}: ${subjects[subject].length}. List: ${subjects[subject].join(', ')}`);
+    }
+    // const cs = students.filter((student) => student.includes('CS'));
+    // const swe = students.filter((student) => student.includes('SWE'));
+    // console.log(`Number of students in CS: ${cs.length}. List: ${cs.map((student) => student.split(',')[0]).join(', ')}`);
+    // console.log(`Number of students in SWE: ${swe.length}. List: ${swe.map((student) => student.split(',')[0]).join(', ')}`);
+
     // let cs = 0;
     // let swe = 0;
     // students.forEach((student) => student.includes('CS') ? cs++ : swe++);

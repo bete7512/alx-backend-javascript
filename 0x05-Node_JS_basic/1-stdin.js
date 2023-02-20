@@ -9,8 +9,8 @@ const prompt = (query) => new Promise((resolve) => rl.question(query, resolve));
 // Usage inside aync function do not need closure demo only*
 (async () => {
   try {
-    console.log("Welcome to Holberton School, what is your name?");
-    const name = await prompt("");
+    // console.log("");
+    const name = await prompt("Welcome to Holberton School, what is your name?\n");
 
     // Can use name for next question if needed
     // const lastName = await prompt(`Hello ${name}, what's your last name?: `);

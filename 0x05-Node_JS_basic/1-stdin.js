@@ -16,6 +16,7 @@ const prompt = (query) => new Promise((resolve) => rl.question(query, resolve));
     // const lastName = await prompt(`Hello ${name}, what's your last name?: `);
     // Can prompt multiple times
     console.log("Your name is:", name);
+    console.log("This important software is now closing");
     rl.close();
   } catch (e) {
     console.error("Unable to prompt", e);

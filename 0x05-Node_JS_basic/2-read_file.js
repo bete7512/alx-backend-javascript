@@ -7,7 +7,7 @@ function countStudents (path) {
     students.shift();
     let cs = 0;
     let swe = 0;
-    students.forEach((student) =>  student.includes('CS') ? cs++ : swe++);
+    students.forEach((student) => student.includes('CS') ? cs++ : swe++);
     console.log(
       `Number of students in CS: ${cs}. List: ${students
         .filter((student) => student.includes('CS'))
@@ -21,7 +21,7 @@ function countStudents (path) {
         .join(', ')}`
     );
   } catch (err) {
-    console.error(err);
+    throw new Error('Cannot load the database');
   }
 }
 module.exports = countStudents;

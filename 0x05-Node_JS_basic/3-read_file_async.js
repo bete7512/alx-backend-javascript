@@ -1,11 +1,12 @@
+/*eslin*/
 const fs = require('fs');
 
-function countStudents (path) {
+function countStudents(path) {
   const promise = new Promise((resolve, reject) => {
     fs.readFile(path, 'utf8', (err, data) => {
       if (err) {
         reject(Error('Cannot load the database'));
-        return
+        return;
       }
       const students = data.split('\n');
       console.log(`Number of students: ${students.length - 1}`);
@@ -17,13 +18,13 @@ function countStudents (path) {
         `Number of students in CS: ${cs}. List: ${students
           .filter((student) => student.includes('CS'))
           .map((student) => student.split(',')[0])
-          .join(', ')}`
+          .join(', ')}`,
       );
       console.log(
         `Number of students in SWE: ${swe}. List: ${students
           .filter((student) => student.includes('SWE'))
           .map((student) => student.split(',')[0])
-          .join(', ')}`
+          .join(', ')}`,
       );
       resolve(students);
     });
